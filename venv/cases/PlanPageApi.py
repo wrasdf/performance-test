@@ -7,7 +7,7 @@ class PlanPageApi(object):
     def __init__(self, webClient):
         self.client = webClient
 
-    def createPlan(self):
+    def create_plan(self):
         self.client.post("/rest/plan/new", json.dumps({
             "comments": "We need make sure this api works fine",
             "description": "We need make sure this api works fine",

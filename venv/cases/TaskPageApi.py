@@ -7,7 +7,7 @@ class TaskPageApi(object):
     def __init__(self, webClient):
         self.client = webClient
 
-    def createTask(self):
+    def create_task(self):
         self.client.post("/rest/task/new", json.dumps({
             "fiveElementName": "1.1.1招（含晋升）",
             "name": "smoke test for shunfeng express",
@@ -18,8 +18,8 @@ class TaskPageApi(object):
             "endDate": "2013-09-19"
         }), headers={"Content-type": "application/json"})
 
-    def taskCreatorAll(self):
+    def task_creator_all(self):
         self.client.get("/rest/task/creator/all/1/createdDate/desc")
 
-    def taskReceiverAll(self):
+    def task_receiver_all(self):
         self.client.get("/rest/task/receiver/all/1/createdDate/desc")

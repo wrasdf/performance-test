@@ -9,22 +9,29 @@ from cases.PlanPageApi import *
 class SFExpressTest(TaskSet):
 
     # task page API
+    def on_start(self):
+        self.task_page_api = TaskPageApi(self.client)
+        self.plan_page_api = PlanPageApi(self.client)
+
     @task
     def createTask(self):
-        TaskPageApi(self.client).createTask()
+        self.task_page_api.create_task()
 
     @task
     def taskCreatorAll(self):
-        TaskPageApi(self.client).taskCreatorAll()
+        self.task_page_api.task_creator_all()
 
     @task
     def taskReceiverAll(self):
-        TaskPageApi(self.client).taskReceiverAll()
+        self.task_page_api.task_receiver_all()
 
     # plan page API
     @task
     def createPlan(self):
-        PlanPageApi(self.client).createPlan()
+        self.plan_page_api.create_plan()
+
+
+
 
 
 class WebsiteUser(Locust):
