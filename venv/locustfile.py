@@ -8,9 +8,6 @@ class SFExpressTest(TaskSet):
     @task
     class TaskPageApi(TaskSet):
 
-        def on_start(self):
-            self.client.get("/pages/task/index.htm")
-
         @task
         def createTask(self):
             self.client.post("/rest/task/new", json.dumps({
@@ -25,9 +22,6 @@ class SFExpressTest(TaskSet):
 
     @task
     class PlanPageApi(TaskSet):
-
-        def on_start(self):
-            self.client.get("/pages/plan/index.htm")
 
         @task
         def createPlan(self):

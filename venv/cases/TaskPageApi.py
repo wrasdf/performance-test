@@ -6,12 +6,6 @@ from locust import Locust, TaskSet, task
 
 class TaskPageApi(TaskSet):
 
-    def __init__(self):
-        pass
-
-    def on_start(self):
-        self.client.get("/pages/task/index.htm")
-
     def createTask(self):
         self.client.post("/rest/task/new", json.dumps({
             "fiveElementName": "1.1.1招（含晋升）",

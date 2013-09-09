@@ -5,9 +5,6 @@ from locust import Locust, TaskSet, task
 
 class PlanPageApi(TaskSet):
 
-    def on_start(self):
-        self.client.get("/pages/plan/index.htm")
-
     def createPlan(self):
         self.client.post("/rest/plan/new", json.dumps({
             "comments": "We need make sure this api works fine",
