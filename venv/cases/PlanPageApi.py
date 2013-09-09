@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 
 import json
-from locust import Locust, TaskSet, task
 
-class PlanPageApi(TaskSet):
+class PlanPageApi(object):
+
+    def __init__(self, webClient):
+        self.client = webClient
 
     def createPlan(self):
         self.client.post("/rest/plan/new", json.dumps({

@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 
 import json
-from locust import Locust, TaskSet, task
 
+class TaskPageApi(object):
 
-class TaskPageApi(TaskSet):
+    def __init__(self, webClient):
+        self.client = webClient
 
     def createTask(self):
         self.client.post("/rest/task/new", json.dumps({
@@ -15,4 +16,10 @@ class TaskPageApi(TaskSet):
             "startDate": "2013-09-09",
             "reviewDate": "2013-09-12",
             "endDate": "2013-09-19"
-        }),headers={"Content-type":"application/json"})
+        }), headers={"Content-type": "application/json"})
+
+    def taskCreatorAll(self):
+        self.client.get("/rest/task/creator/all/1/createdDate/desc")
+
+    def taskReceiverAll(self):
+        self.client.get("/rest/task/receiver/all/1/createdDate/desc")
