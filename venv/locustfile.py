@@ -13,7 +13,7 @@ class TaskPageTest(TaskSet):
         self.base = Base(self.client)
         self.task_page_api = TaskPageApi(self.client)
 
-    @task(10)
+    @task(4)
     def createTask(self):
         self.task_page_api.create_task()
 
@@ -33,7 +33,6 @@ class TaskPageTest(TaskSet):
     def taskCreatorUnAccepted(self):
         self.base.get('/rest/task/creator/unaccepted/1/createdDate/desc')
 
-
     @task
     def stop(self):
         self.interrupt()
@@ -45,7 +44,7 @@ class PlanPageTest(TaskSet):
         self.base = Base(self.client)
         self.plan_page_api = PlanPageApi(self.client)
 
-    @task
+    @task(2)
     def createPlan(self):
         self.plan_page_api.create_plan()
 
